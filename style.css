@@ -1,0 +1,1213 @@
+/* Palette 1 */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+:root {
+    --color1: #fffcfd24; /* Couleur de fond claire */
+    --color2: #c6c7c4; /* Couleur secondaire */
+    --color3: #ccbfe2; /* Couleur neutre/moyenne */
+    --color4: #8d77ab;  /*Couleur d'accentuation*/
+    --color5: #353b3c; /* Couleur sombre/texte principal */
+}
+
+/* Styles de base pour le corps et la page */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif;
+    overflow-x: hidden;
+    background-color: var(--color1);
+    color: var(--color5);
+}
+
+h1{
+    text-align: center;
+    margin: 15px;
+}
+
+h2{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    margin: 15px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Permet à main de prendre tout l'espace disponible */
+}
+
+#map {
+    height: 67vh; /* Prend toute la hauteur de la fenêtre */
+    width: 100vw; /* Prend toute la largeur de la fenêtre */
+    z-index: 2;
+}
+
+
+/* Style pour le header */
+header {
+    background-color: var(--color1);
+    color: var(--color5);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Espace le logo et la nav */
+    flex-direction: row; /* Aligne horizontalement les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    position: relative;
+}
+
+/* Styles pour le logo */
+.logo {
+    width: 100px; /* Ajuste la largeur selon tes besoins */
+    height: auto; /* Maintient le ratio d'aspect de l'image */
+    display: flex; /* Aligne le contenu au centre */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+}
+
+.logo-negatif {
+    width: 110px; /* Ajuste la largeur selon tes besoins */
+    height: auto; /* Maintient le ratio d'aspect de l'image */
+    display: flex; /* Aligne le contenu au centre */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    Filter: invert(10%); /* Applique l'effet négatif */
+}
+
+/* Masquer la croix par défaut sur les grands écrans */
+.close {
+    display: none;
+}
+nav { /* Ou tout autre conteneur parent */
+    text-align: center; /* Centre le contenu textuel */
+}
+/* Styles pour la barre de navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 10px;
+}
+
+.nav-links a {
+    color: var(--color5);
+    text-decoration: none;
+    padding: 8px 12px;
+    font-family: 'Lora', serif;
+    font-weight: 900;
+    position: relative; /* nécessaire pour positionner le pseudo-élément */
+    font-size: 1.5vw;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color4);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* l'underline s'étend à toute la largeur du lien sur hover */
+}
+
+
+/* Masquer la barre de navigation par défaut sur mobile */
+@media (max-width: 1126px) {
+
+    header {
+        background-color: var(--color1);
+        margin-bottom: 60px;
+    }
+
+    #map {
+        height: 47vh; /* Prend toute la hauteur de la fenêtre */
+        width: 100vw; /* Prend toute la largeur de la fenêtre */
+    }
+
+    .nav-links a {
+        font-size: 1.5em;
+        font-weight: 550;
+        color: rgb(74, 74, 74);
+        text-decoration: none;
+        padding: 8px 12px;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    /* Masquer le logo */
+    .logo {
+        display: none;
+    }
+
+    .logo-negatif {
+        position: absolute; /* Permet de positionner l'élément par rapport à son conteneur */
+        top: 220%; /* Centre verticalement */
+        left: 50%; /* Centre horizontalement */
+        transform: translate(-50%, -50%); /* Ajuste le décalage pour un vrai centrage */
+        width: 100px; /* Ajuste la largeur selon tes besoins */
+        height: auto; /* Maintient le ratio d'aspect de l'image */
+        filter: invert(0%); /* Applique l'effet négatif */
+        z-index: 9999; /* Place l'élément au-dessus des autres */
+    }    
+
+    header {
+        color: var(--color1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative; /* Pour positionner le burger et autres éléments */
+    }
+
+    .nav-links.active {
+        display: flex;
+        overflow: hidden; /* Empêcher le défilement lorsqu'on navigue */
+    }
+
+    /* Styles du menu burger */
+    .burger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: #cfcfcf37;
+        border-radius: 50%;
+        padding: 10px;
+        z-index: 11;
+    }
+
+    .burger-icon {
+        width: 27px;
+        height: 3px;
+        background-color: var(--color4);
+        margin: 3px;
+    }
+
+    /* Masquer la croix (close button) par défaut */
+    .close {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px; /* Positionné en haut à droite, même place que le burger */
+        /* background-color: rgba(142, 142, 142, 0.1); Même fond rond que le burger */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 50px;
+        color: var(--color4);
+        cursor: pointer;
+        z-index: 12;
+    }
+
+    /* Afficher la croix et masquer le burger quand le menu est actif */
+    .nav-links.active ~ .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links.active ~ .burger {
+        display: none;
+    }
+}
+
+/* --------------------  Accueil  ------------------ */
+
+.hero {
+    position: relative;
+    height: 67vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('static/bg1.jpg') no-repeat center center/cover;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacité sombre */
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: x-large;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 35vh;
+    }
+    .hero-content {
+        font-size: large;
+    }
+}
+
+.presentation {
+    max-width: 1110px;
+    margin: 50px auto;
+}
+
+.presentation p{
+    text-align: justify;
+}
+
+.presentation h2{
+    text-align: center;
+}
+.presentation h3{
+    padding-left: 15px;
+    padding-top: 40px;
+}
+
+.presentation-content {
+    color: #333;
+}
+
+.about-services {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permet de passer les éléments en colonne sur petit écran */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: white;
+    border: 1px solid var(--color4);
+    padding: 20px;
+    position: relative;
+    flex: 1 1 30%; /* Les cartes prendront 30% de la largeur disponible */
+    min-width: 250px; /* Largeur minimum sur les petits écrans */
+    text-align: left;
+    box-shadow: 0 2px 5px var(--color2, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Animation de survol */
+}
+
+.post-it {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: var(--color4);
+    color: white;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transform: rotate(-10deg);
+    box-shadow: 0 2px 5px var(--color3, 0.3);
+}
+
+.testimonials {
+    padding: 40px 20px;
+    background-color: var(--color1);
+    text-align: center;
+    overflow: hidden; /* Masque le débordement du carrousel */
+}
+
+.testimonial-carousel {
+    display: flex;
+    cursor: grab;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+    display: none; /* Masque la barre de défilement sur Chrome, Safari, et Edge */
+}
+
+.testimonial-item {
+    flex: 0 0 33.333%; /* Affiche trois témoignages côte à côte */
+    padding: 20px;
+    margin: 0; /* Supprime l'espacement entre les cases */
+    min-height: 300px; /* Augmente la hauteur des cases */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: white; /* Couleur par défaut */
+    border-radius: 8px;
+    border: 2px solid var(--color4);
+    box-shadow: 0 2px 4px var(--color3, 0.1);
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Espace entre les témoignages */
+}
+
+.testimonial-item:nth-child(odd) {
+    border-color: var(--color4); /* Couleur pastel pour les cases impaires */
+}
+
+.testimonial-item:nth-child(even) {
+    border-color: var(--color4); /* Couleur pastel pour les cases paires */
+}
+
+.testimonial-quote {
+    font-size: 68px; /* Réduire la taille pour une meilleure visibilité */
+    color: var(--color5); /* Gris foncé pour le symbole "”" */
+    line-height: 1;
+    margin-bottom: -34px;
+    text-align: center; /* Centre horizontalement */
+    width: 100%; /* Assure que le texte occupe toute la largeur */
+}
+
+.testimonial-content {
+    font-size: 20px;
+    color: var(--color5);
+    line-height: 1.5;
+    margin-bottom: 5px;
+    text-align: start;
+}
+
+.testimonial-author {
+    font-size: 14px;
+    color: var(--color5);
+    font-style: italic;
+    align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+    .testimonial-item {
+        flex: 0 0 50%; /* Affiche une case plus allongée sur les petits écrans */
+        min-width: 30%; /* Ajustement de la largeur pour permettre à la prochaine case d'être visible */
+        margin: 0 10px; /* Marge sur les côtés pour espacement */
+    }
+    .testimonial-content {
+        font-size: smaller
+    }
+}
+
+@media (max-width: 400px) {
+    .testimonial-item {
+        flex: 0 0 50%; /* Affiche une case plus allongée sur les petits écrans */
+        min-width: 20%; /* Ajustement de la largeur pour permettre à la prochaine case d'être visible */
+        margin: 0 10px; /* Marge sur les côtés pour espacement */
+    }
+}
+
+.how-to-start {
+    background-color: var(--color1); /* Fond clair */
+    text-align: center;
+}
+
+.how-to-start h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--color5);
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Pour les petits écrans */
+}
+
+.step {
+    background-color: white; /* Fond blanc pour les étapes */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--color2, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 200px; /* Largeur fixe pour les étapes */
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px); /* Effet de survol */
+}
+
+.step-number {
+    background-color: var(--color4); /* Couleur de fond pour le numéro */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Couleur pour le texte du numéro */
+    margin: 0 auto 10px; /* Marge pour le positionnement */
+}
+
+.arrow {
+    font-size: 24px; /* Taille de la flèche */
+    margin: 0 15px; /* Espace autour de la flèche */
+}
+
+.button-rdv {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: var(--color4); /* Couleur du bouton */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button-rdv:hover {
+    background-color: var(--color3); /* Couleur au survol */
+}
+
+@media (max-width: 2000px) {
+    .steps {
+        flex-direction: column; /* Colonne pour petits écrans */
+    }
+
+    .step {
+        width: 80%; /* Largeur pour petits écrans */
+        margin: 10px auto; /* Centre les étapes */
+    }
+
+    .arrow {
+        display: none; /* Cache les flèches sur petits écrans */
+        /* transform: rotate(90deg);*/
+    }
+}
+
+.image-gallery {
+    padding-bottom: 40px;
+    background-color: var(--color1); /* Fond clair pour la section */
+    text-align: center; /* Centre le texte */
+}
+
+.image-gallery h2 {
+    font-size: 32px; /* Taille de la police pour le titre */
+    margin-bottom: 20px; /* Marge en bas du titre */
+    color: var(--color5); /* Couleur pour le titre */
+}
+
+.images {
+    display: flex; /* Utiliser flex pour aligner les images */
+    justify-content: center; /* Centre les images horizontalement */
+    flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'espace est insuffisant */
+    gap: 30px; /* Espace entre les images */
+}
+
+.image-container {
+    position: relative; /* Nécessaire pour le positionnement de l'animation */
+    width: 350px; /* Largeur fixe pour les conteneurs */
+    height: 350px; /* Hauteur fixe pour les conteneurs */
+    overflow: hidden; /* Pour cacher tout débordement */
+    border-radius: 8px; /* Coins arrondis pour les conteneurs */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre pour donner de la profondeur */
+    animation: pulse 4.0s ease-in-out infinite; /* Animation pour le conteneur */
+}
+
+
+.image {
+    width: 100%; /* Les images remplissent le conteneur */
+    height: 100%; /* Les images remplissent le conteneur */
+    object-fit: cover; /* Garde le ratio d'aspect tout en remplissant l'espace */
+    border-radius: 8px; /* Coins arrondis pour un effet visuel agréable */
+    position: relative; /* Nécessaire pour le pseudo-élément */
+    z-index: 1; /* Positionner l'image au-dessus de l'animation */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        border-radius: 90% 50% 92% 28% / 47% 81% 59% 93%;
+      }
+      50% {
+        border-radius: 77% 43% 54% 46% / 60% 38% 62% 60%;
+      }
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .images {
+        flex-direction: column; /* Aligne les images verticalement */
+        align-items: center; /* Centre les images dans la colonne */
+    }
+
+    .image-container {
+        width: 100%; /* Les conteneurs prennent toute la largeur de l'écran */
+        max-width: 400px; /* Largeur maximale pour les petits écrans */
+    }
+}
+
+
+/* --------------------  Qui suis-je ?  ------------------ */
+
+.about-container {
+    display: flex;
+    align-items: flex-start; /* Aligne le texte et l'image en haut */
+    justify-content: space-between; /* Espace entre le texte et l'image */
+    margin: 20px; /* Marges pour espacer le contenu */
+}
+
+.about-text {
+    flex: 2; /* Prend 2/3 de l'espace disponible */
+    margin-left: 20px; /* Espace entre le texte et l'image */
+}
+
+.about-photo {
+    flex: 1; /* Prend 1/3 de l'espace disponible */
+    width: 80%;
+}
+
+
+.about-photo img {
+    width: 100%; /* Image prend toute la largeur de son conteneur */
+    height: auto; /* Conserve le ratio de l'image */
+    border: 2px solid var(--color4);
+    border-radius: 200px; /* Arrondit les coins de l'image */
+}
+
+.discover-services {
+    margin-top: 20px; /* Espace au-dessus du bouton */
+    padding: 10px 20px; /* Padding autour du texte du bouton */
+    background-color: var(--color5); /* Couleur de fond du bouton */
+    color: var(--color1); /* Couleur du texte */
+    border: none; /* Supprime la bordure par défaut */
+    border-radius: 5px; /* Arrondit les coins du bouton */
+    cursor: pointer; /* Change le curseur en pointeur */
+}
+
+.discover-services:hover {
+    background-color: var(--color4); /* Change la couleur au survol */
+}
+
+.highlight {
+    position: relative;
+    font-weight: bold;
+    padding: 0 2px;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color3); /* Couleur du rectangle */
+    opacity: 0.5; /* Opacité du rectangle */
+    z-index: -1;
+    border-radius: 3px; /* Même arrondi que le texte */
+}
+
+@media (max-width: 1146px) {
+    .highlight{
+        font-weight: 900;
+        text-decoration: underline;
+    }
+    .highlight::before {
+        display: none;
+    }
+}
+
+
+/* Media query pour les écrans plus petits */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Change la direction en colonne sur mobile */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .about-text {
+        margin-right: 0; /* Supprime l'espace à droite */
+        margin-bottom: 20px; /* Espace entre le texte et la photo */
+        text-align: center; /* Centre le texte */
+    }
+
+    .about-photo {
+        width: 60%; /* Prend toute la largeur sur mobile */
+    }
+
+    .about-photo img {
+        width: 100%;
+        border-radius: 500px; /* Arrondit les coins de l'image */
+    }
+}
+
+/* --------------------  Prendre RDV  ------------------ */
+
+.appointment-container {
+    margin: 20px; /* Marges pour espacer le contenu */
+    text-align: center; /* Centre le texte */
+}
+
+.calendly-inline-widget {
+    
+    margin: 0 auto; /* Centre le widget */
+}
+
+@media (max-width: 768px) {
+    .calendly-inline-widget iframe {
+        height: 871px; /* Ajuste la hauteur pour les petits écrans */
+    }
+}
+
+/* --------------------  Avant/Après  ------------------ */
+
+/* Réinitialisation des styles de base */
+img {
+    max-width: 100%;
+}
+
+.grid-container-aa {
+    display: grid;
+    grid-template-columns: 1fr; /* Par défaut, une seule colonne */
+    gap: 2rem;
+    width: 90%;
+    margin: 5%; /* Marge à gauche et à droite de 5% */
+    overflow: hidden; /* Pour éviter le débordement */
+}
+
+
+@media (min-width: 600px) {
+    .grid-container-aa {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les écrans intermédiaires */
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container-aa {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour les grands écrans */
+    }
+}
+
+.container-aa {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    --position: 50%;
+    width: 100%; /* S'adapte à la largeur de la grille */
+    aspect-ratio: 1/1;
+}
+
+.image-container-aa {
+    position: relative; /* Important pour la superposition des images */
+    width: 100%;
+    height: 100%;
+}
+
+.slider-image {
+    position: absolute; /* Positionnement absolu pour superposer les images */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Utilisation de clip-path pour découper l'image "avant" */
+.image-before {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0% 100%);
+    z-index: 2; /* Assurer que l'image "avant" est au-dessus */
+}
+
+.image-after {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* L'image "après" reste en dessous */
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    opacity: 0; /* On garde le slider invisible mais fonctionnel */
+    width: 100%;
+    height: 100%;
+    z-index: 3; /* Assurer que le slider est au-dessus des images pour capturer les interactions */
+}
+
+.slider:focus-visible ~ .slider-button {
+    outline: 5px solid var(--color5);
+    outline-offset: 3px;
+}
+  
+.slider-line {
+    position: absolute;
+    width: 4px; /* Augmentation de la largeur pour bien la voir */
+    height: 100%;
+    background-color: white; /* Blanc avec transparence */
+    left: var(--position);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 6; /* Assurer qu'elle est bien au-dessus des images */
+}
+
+
+.slider-button {
+    position: absolute;
+    background-color: white;
+    color: var(--color4);
+    padding: 0.5rem;
+    border-radius: 100vw;
+    display: grid;
+    place-items: center;
+    top: 50%;
+    left: var(--position);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    box-shadow: 1px 1px 1px var(--color3, 0.5);
+    z-index: 7; /* Au-dessus de tout pour être visible */
+}
+
+/* Adaptation pour les petits écrans */
+@media (max-width: 600px) {
+    .image-container-aa {
+        max-width: 100%;
+        max-height: 60vh;
+    }
+
+    .slider-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-line {
+        width: 0.15rem;
+    }
+}
+
+
+/* --------------------  FAQ  ------------------ */
+
+.faq-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.faq-search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.faq-search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.faq-search-icon {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.faq-list .faq-item {
+    border-bottom: 1px solid var(--color2);
+    padding: 15px 0;
+}
+
+.faq-question {
+    margin-bottom: 0;
+    padding: 24px;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    cursor: pointer;
+    border-top: 1px solid var(--color2); /* Bord fin en haut */
+}
+
+.faq-item:first-child .faq-question {
+    border-top: none; /* Enlève le bord du premier élément */
+}
+
+.faq-item.active .faq-question {
+    border-bottom: none;
+    border-top: none; /* Supprime la bordure du bas lorsque la question est active */
+}
+
+.faq-arrow {
+    position: absolute; /* Positionner la flèche de manière absolue */
+    right: 20px; /* Distance par rapport au bord droit */
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement */
+    transition: transform 0.3s ease; /* Transition pour l'animation de rotation */
+}
+
+.faq-question.open .faq-arrow {
+    transform: translateY(-50%) rotate(90deg); /* Flèche pointant vers la droite (90 degrés) */
+}
+
+
+.faq-answer {
+    display: none;
+    padding: 0 0 0 25px;
+    background-color: var(--color1);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.faq-item.active .faq-answer {
+    display: block; /* Montre la réponse */
+}
+
+
+
+/* --------------------  FOOTER  ------------------ */
+
+footer {
+    border-top: solid 1px var(--color3);
+    box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--color4);
+    color: white;
+    padding: 30px 120px 0px 120px; /* haut, droite, bas, gauche */
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+    margin-bottom: -60px;
+}
+
+.footer-logo {
+    text-align: left;
+}
+
+.footer-logo img {
+    max-width: 120px;
+    filter: invert(100%); /* Applique l'effet négatif */
+}
+
+.footer-social-contact {
+    text-align: center;
+}
+
+.footer-social {
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-social img:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+.footer-contact p {
+    margin: 10px 0;
+}
+
+.footer-certification {
+    text-align: right;
+}
+
+.footer-certification img {
+    max-width: 140px;
+    margin: 0;
+}
+
+/* Mentions légales et copyright centrés */
+.footer-legal,
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-legal a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    font-size: 14px;
+    color: white;
+}
+
+
+@media (max-width: 900px) {
+    footer {
+        padding: 20px 30px; /* Réduire la marge intérieure sur les petits écrans */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        text-align: center;
+        margin-bottom: 0; /* Ajuster la marge pour mieux s'adapter */
+    }
+
+    .footer-logo, .footer-certification {
+        text-align: center; /* Centrer le logo et la certification */
+    }
+
+    .footer-certification img {
+        margin: 20px 0; /* Ajouter un peu d'espace au-dessus et en dessous de l'image */
+    }
+}
+
+
+
+/* Loader animation */
+
+/* Styles pour l'écran de chargement */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fffcfd; /* Fond blanc pendant le chargement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Empile les éléments verticalement */
+    z-index: 9999; /* Assure que l'animation soit au-dessus de tout */
+}
+
+.loading-logo {
+    width: 220px;
+    opacity: 0; /* Rend le logo invisible au début */
+    animation: fadeInLogo 1s forwards, fadeUpLogo 0.5s forwards 1.3s; /* Animation pour faire apparaître le logo */
+}
+
+.loading-butterfly {
+    width: 35px;
+    margin-top: 20px;
+    opacity: 0; /* Rend le GIF invisible au début */
+    bottom: 113px;
+    left: 105px;
+    position: relative; /* Pour animer sa position */
+    animation: fadeInButterfly 1s forwards, flyAway 2s forwards 0.2s; /* Animations pour le GIF */
+    filter: invert(29%) sepia(100%) saturate(600%) hue-rotate(265deg) brightness(0.4);
+}
+
+.logo-negatif {
+    display: none; /* Cache le logo négatif par défaut */
+}
+
+@media (max-width: 500px) {
+    .loading-logo {
+        width: 176px;    
+    }
+    
+    .loading-butterfly {
+        width: 35px;
+        margin-top: 20px;
+        opacity: 0; /* Rend le GIF invisible au début */
+        bottom: 99px;
+        left: 84px;
+        position: relative; /* Pour animer sa position */
+        animation: fadeInButterfly 1s forwards, flyAway 2s forwards 0.2s; /* Animations pour le GIF */
+        filter: invert(29%) sepia(100%) saturate(600%) hue-rotate(265deg) brightness(0.4);
+    }
+}
+
+/* Animation pour l'apparition du logo */
+@keyframes fadeInLogo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUpLogo {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Animation pour l'apparition du papillon */
+@keyframes fadeInButterfly {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animation pour le vol du papillon */
+@keyframes flyAway {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(200px, -300px); opacity: 0.5; }
+}
+
+
+/* Masque l'écran de chargement une fois l'animation terminée */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+body.loaded #loading-screen {
+    display: none; /* Masque complètement l'écran de chargement après l'animation */
+}
+
+
+/* Contact */
+form {
+    background-color: var(--color1); /* Couleur de fond du formulaire */
+    max-width: 800px; /* Largeur maximale du formulaire */
+    margin: 0 auto; /* Centre le formulaire */
+    display: flex; /* Utilisation de flexbox pour la disposition */
+    flex-direction: column; /* Colonne pour les éléments */
+    gap: 15px; /* Espacement entre les éléments */
+}
+
+/* Styles des étiquettes */
+label {
+    font-weight: bold; /* Texte en gras */
+    color: var(--color5); /* Couleur du texte */
+    font-size: 16px; /* Taille de police */
+}
+
+/* Styles des champs d'entrée */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+    width: 100%; /* Prend toute la largeur */
+    padding: 15px; /* Espacement intérieur */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 16px; /* Taille de police */
+    border: none; /* Pas de bordure */
+    transition: box-shadow 0.3s; /* Animation de l'ombre */
+    border: 1px solid var(--color4);
+}
+
+/* Spécifique pour le champ message */
+textarea {
+    min-height: 150px; /* Hauteur minimale du textarea */
+    resize: vertical; /* Permet de redimensionner uniquement en hauteur */
+}
+
+/* Changement de couleur de la bordure au focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    box-shadow: 0 0 8px var(--color3); /* Ombre au focus */
+}
+
+
+/* Styles pour le bouton */
+button {
+    background-color: var(--color4); /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    padding: 15px; /* Espacement intérieur */
+    border-radius: 8px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en main */
+    font-size: 18px; /* Taille de police */
+    transition: background-color 0.3s; /* Animation de changement de couleur */
+    width: 80%; /* Prend toute la largeur disponible */
+    margin: 20px auto; /* Centre le bouton avec un espace au-dessus et en dessous */
+}
+
+/* Changement de couleur au survol */
+button:hover {
+    background-color: var(--color3); /* Couleur du bouton au survol */
+}
+
+/* Styles pour le message de réponse */
+#responseMessage {
+    margin-top: -35px; /* Espacement supérieur */
+    margin-bottom: 30px;
+    font-size: 16px; /* Taille de police */
+    color: var(--color4); /* Couleur de texte pour le succès */
+    text-align: center; /* Centrer le texte */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    form {
+        padding-left: 60px; 
+        padding-right: 60px;/* Réduire l'espacement intérieur sur mobile */
+    }
+}
+
+/* --------------------- Prestations ------------------------ */
+
+/*voir "step" */
+
+.custom-list {
+    list-style-type: none; /* Supprime les puces par défaut */
+    padding-left: 0; /* Supprime le padding par défaut */
+}
+
+.custom-list li {
+    position: relative; /* Pour positionner le tiret */
+    padding-left: 30px; /* Espace à gauche pour le tiret */
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+.custom-list li::before {
+    content: '-'; /* Remplace la puce par un tiret */
+    position: absolute; /* Positionne le tiret à gauche */
+    left: 10px; /* Position du tiret à gauche */
+    color: var(--color4); /* Change la couleur du tiret, vous pouvez personnaliser */
+    font-weight: bold; /* Met le tiret en gras si besoin */
+    margin-left: 5px; /* Marge à gauche du tiret */
+}
+
+.tarifs {
+    margin-bottom: 20px;
+}
+
+
+
+
+

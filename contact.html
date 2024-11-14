@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazar Envolé - Contact</title>
+    <link rel="icon" href="static/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Ajout de EmailJS -->
+</head>
+<body>
+    <div id="loading-screen">
+        <img src="static/logo-0.png" alt="Logo" class="loading-logo">
+        <img src="static/papillon.gif" alt="Papillon" class="loading-butterfly">
+    </div>
+    <header>
+        <div class="logo-negatif">
+            <a href="index.html">
+                <img src="static/logo.png" alt="Bazar Envolé Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+                <li><a href="avant-apres.html">Avant/Après</a></li>
+                <li><a href="prendre-rdv.html">Prendre RDV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+            </div>
+            <div class="close" id="close">&times;</div>
+        </nav>
+    </header>
+    <script src="script.js"></script>
+
+    <main>
+        <h1>Contactez-moi</h1>
+
+        <form id="contactForm">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+    
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+    
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="telephone">Numéro de téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required>
+    
+            <label for="codepostal">Code Postal :</label>
+            <input type="text" id="codepostal" name="codepostal" required>
+    
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+    
+            <button type="submit">Envoyer</button>
+        </form>
+    
+        <div id="responseMessage"></div>
+
+    
+        <script>
+            (function() {
+                emailjs.init("mSRVgaKumtXfa6jdT"); // Remplace par ta clé publique
+        
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Empêche le rechargement de la page
+        
+                    emailjs.sendForm('service_jfsko4o', 'template_k5opumk', this) // Remplace 'template_id' par l'ID de ton modèle
+                        .then(function() {
+                            document.getElementById('responseMessage').innerHTML = 'Votre message a été envoyé avec succès.';
+                            this.reset(); // Réinitialise le formulaire
+                        }.bind(this), function(error) { // Utiliser .bind(this) pour que `this` pointe vers le formulaire
+                            document.getElementById('responseMessage').innerHTML = 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez nous contacter directement à bazar.envole@orange.fr';
+                            console.log('Erreur: ', error);
+                        });
+                });
+            })();
+        </script>             
+    </main>
+     
+    <footer>
+        <div class="footer-container">
+            <!-- Colonne 1 : Logo -->
+            <div class="footer-logo">
+                <img src="static/logo-nb.png" alt="Bazar Envolé Logo">
+            </div>
+            
+            <!-- Colonne 2 : Réseaux sociaux et email -->
+            <div class="footer-social-contact">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="static/instagram.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="static/linkedin.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="static/facebook.png" alt="Facebook" />
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:bazar.envole@orange.fr" style="color: white;">bazar.envole@orange.fr</a></p>
+                </div>
+            </div>
+            
+            <!-- Colonne 3 : Certification -->
+            <div class="footer-certification">
+                <img src="static/certification-inv.png" alt="Home Organizer Certifiée" />
+            </div>
+        </div>
+    
+        <!-- Mentions légales et copyright centrés -->
+        <div class="footer-legal">
+            <a href="#politique-confidentialite">Politique de confidentialité</a> | 
+            <a href="#mentions-legales">Mentions légales</a>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>Bazar Envolé - Tous droits réservés - 2024</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

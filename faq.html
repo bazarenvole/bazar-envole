@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazar Envolé - FAQ</title>
+    <link rel="icon" href="static/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <img src="static/logo-0.png" alt="Logo" class="loading-logo">
+        <img src="static/papillon.gif" alt="Papillon" class="loading-butterfly">
+    </div>
+    <header>
+        <div class="logo-negatif">
+            <a href="index.html">
+                <img src="static/logo.png" alt="Bazar Envolé Logo">
+            </a>
+        </div>   
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+                <li><a href="avant-apres.html">Avant/Après</a></li>
+                <li><a href="prendre-rdv.html">Prendre RDV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+            </div>
+            <div class="close" id="close">&times;</div>
+        </nav>
+    </header>
+    <script src="script.js"></script>
+
+    <main>
+        <div class="faq-container">
+            <h1>Questions fréquentes</h1>
+    
+            <div class="faq-search-bar">
+                <input type="text" class="faq-search-input" placeholder="Recherche..." onkeyup="filterFaq(this.value)">
+                <span class="faq-search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M10.5 2c4.694 0 8.5 3.806 8.5 8.5 0 1.987-.681 3.814-1.823 5.261l4.53 4.532c.39.39.39 1.024 0 1.414-.39.39-1.024.39-1.414 0l-4.532-4.53C14.314 18.319 12.487 19 10.5 19 5.806 19 2 15.194 2 10.5S5.806 2 10.5 2zm0 2C6.91 4 4 6.91 4 10.5S6.91 17 10.5 17c1.77 0 3.376-.708 4.548-1.856l.045-.051c.016-.016.033-.032.05-.046C16.292 13.876 17 12.27 17 10.5 17 6.91 14.09 4 10.5 4z"></path>
+                    </svg>
+                </span>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Quels sont les avantages de faire appel à un Home Organizer ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu faq-arrow" focusable="false" aria-hidden="true" fill="currentColor">
+                        <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">Un Home Organizer aide à désencombrer, à organiser efficacement vos espaces de vie, à optimiser vos rangements, et à rendre votre maison plus fonctionnelle et apaisante.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Combien de temps faut-il pour organiser une pièce ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu faq-arrow" focusable="false" aria-hidden="true" fill="currentColor">
+                        <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">Le temps nécessaire dépend de la taille de la pièce et du niveau de désorganisation. En général, il faut entre 3 et 6 heures pour organiser une pièce standard, mais cela peut varier selon les besoins spécifiques.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Est-ce que le Home Organizer fournit les boîtes et autres matériaux de rangement ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu faq-arrow" focusable="false" aria-hidden="true" fill="currentColor">
+                        <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">Nous vous conseillons sur les meilleurs types de boîtes et d'accessoires de rangement à utiliser. Vous avez la possibilité d'acheter ces matériaux vous-même ou de nous laisser les fournir selon vos préférences.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Quels types d'espaces peuvent être organisés ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu faq-arrow" focusable="false" aria-hidden="true" fill="currentColor">
+                        <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">Nous pouvons organiser une grande variété d'espaces, y compris les cuisines, les chambres, les bureaux, les garages, les placards, et même les espaces de stockage spécifiques comme les caves et les greniers.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Est-ce que le service est confidentiel ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu faq-arrow" focusable="false" aria-hidden="true" fill="currentColor">
+                        <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">Oui, tous nos services sont entièrement confidentiels. Nous respectons votre vie privée et nous nous engageons à ne jamais divulguer d'informations concernant votre domicile ou vos affaires personnelles.</div>
+            </div>
+                      
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <!-- Colonne 1 : Logo -->
+            <div class="footer-logo">
+                <img src="static/logo-nb.png" alt="Bazar Envolé Logo">
+            </div>
+            
+            <!-- Colonne 2 : Réseaux sociaux et email -->
+            <div class="footer-social-contact">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="static/instagram.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="static/linkedin.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="static/facebook.png" alt="Facebook" />
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:bazar.envole@orange.fr" style="color: white;">bazar.envole@orange.fr</a></p>
+                </div>
+            </div>
+            
+            <!-- Colonne 3 : Certification -->
+            <div class="footer-certification">
+                <img src="static/certification-inv.png" alt="Home Organizer Certifiée" />
+            </div>
+        </div>
+    
+        <!-- Mentions légales et copyright centrés -->
+        <div class="footer-legal">
+            <a href="#politique-confidentialite">Politique de confidentialité</a> | 
+            <a href="#mentions-legales">Mentions légales</a>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>Bazar Envolé - Tous droits réservés - 2024</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

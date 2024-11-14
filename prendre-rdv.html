@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazar Envolé - Prendre RDV</title>
+    <link rel="icon" href="static/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <img src="static/logo-0.png" alt="Logo" class="loading-logo">
+        <img src="static/papillon.gif" alt="Papillon" class="loading-butterfly">
+    </div>
+    <header>
+        <div class="logo-negatif">
+            <a href="index.html">
+                <img src="static/logo.png" alt="Bazar Envolé Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+                <li><a href="avant-apres.html">Avant/Après</a></li>
+                <li><a href="prendre-rdv.html">Prendre RDV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+            </div>
+            <div class="close" id="close">&times;</div>
+        </nav>
+    </header>
+    <script src="script.js"></script>
+
+    <main>
+        <div class="appointment-container">
+            <div class="appointment-text">
+                <h1>Prendre Rendez-vous</h1>
+                <p>
+                    Pour prendre rendez-vous avec moi, veuillez sélectionner un créneau disponible dans le calendrier ci-dessous. 
+                    Je suis impatient de vous rencontrer et de discuter de vos besoins en organisation !
+                </p>
+            </div>
+            <div class="calendly-inline-widget">
+                <iframe src="https://calendly.com/alice-jondeau/reunion-mentorat"
+                        width="100%" 
+                        height="700" 
+                        frameborder="0"
+                        scrolling="no"></iframe>
+            </div>
+        </div>
+    </main>
+     
+    <footer>
+        <div class="footer-container">
+            <!-- Colonne 1 : Logo -->
+            <div class="footer-logo">
+                <img src="static/logo-nb.png" alt="Bazar Envolé Logo">
+            </div>
+            
+            <!-- Colonne 2 : Réseaux sociaux et email -->
+            <div class="footer-social-contact">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="static/instagram.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="static/linkedin.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="static/facebook.png" alt="Facebook" />
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:bazar.envole@orange.fr" style="color: white;">bazar.envole@orange.fr</a></p>
+                </div>
+            </div>
+            
+            <!-- Colonne 3 : Certification -->
+            <div class="footer-certification">
+                <img src="static/certification-inv.png" alt="Home Organizer Certifiée" />
+            </div>
+        </div>
+    
+        <!-- Mentions légales et copyright centrés -->
+        <div class="footer-legal">
+            <a href="#politique-confidentialite">Politique de confidentialité</a> | 
+            <a href="#mentions-legales">Mentions légales</a>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>Bazar Envolé - Tous droits réservés - 2024</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazar Envolé</title>
+    <link rel="icon" href="static/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div id="loading-screen">
+        <img src="static/logo-0.png" alt="Logo" class="loading-logo">
+        <img src="static/papillon.gif" alt="Papillon" class="loading-butterfly">
+    </div>
+    <header>
+        <div class="logo-negatif">
+            <a href="index.html">
+                <img src="static/logo.png" alt="Bazar Envolé Logo">
+            </a>
+        </div>            
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+                <li><a href="avant-apres.html">Avant/Après</a></li>
+                <li><a href="prendre-rdv.html">Prendre RDV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+            </div>
+            <div class="close" id="close">&times;</div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Bazar envolé, esprit libéré</h1>
+                <p>Du tri, du désencombrement et une organisation qui vous correspond !</p>
+            </div>
+        </section>
+
+        <section class="presentation">
+            <div class="presentation-content">
+                <h2>Je suis Laurie Estavoyer, professionnelle de l’organisation.</h2>
+                <p>J’ai créé Bazar Envolé afin de vous accompagner dans le tri, le désencombrement et le rangement. Mon métier consiste à transformer vos espaces de vie afin qu’ils soient <span class="highlight">organisés</span> et <span class="highlight">fonctionnels</span>. J’analyse vos problématiques d’organisation et je recherche des solutions personnalisées que l’on mettra en œuvre ensemble. <span class="highlight">Je m’adapte à vos besoins et contraintes pour créer un espace de vie qui vous ressemble</span> et dans lequel vous vous sentez bien.</p>
+                <p>Que vous recherchiez à réaménager une pièce, optimiser un espace ou repenser l’organisation globale de votre maison, je suis là pour vous guider étape par étape afin d’attribuer une place pertinente et fonctionnelle à chaque objet.</p>
+                <p>J’interviens également à des <span class="highlight">moments clés de la vie</span> comme un décès, un départ en maison de retraite, une maladie ou encore une séparation en vous apportant un réel soutien dans cette épreuve.</p>
+                
+                <p>Je travaille avec vous dans le plus grand respect de votre espace et de vos attentes, en vous accompagnant sans jugement. Tous nos échanges et informations resteront confidentiels, assurant ainsi un cadre de confiance et de sécurité tout au long de mon accompagnement.</p>
+        
+                <h3>Travailler avec moi c’est :</h3>
+                <ul>
+                    <li>Retrouver de l’énergie et du temps pour profiter de vos proches</li>
+                    <li>Apprendre de nouvelles méthodes afin de simplifier votre quotidien</li>
+                    <li>Avoir un réel soutien lors d’une évolution de vie (décès, divorce, départ en maison de retraite, déménagement, maladie, naissance...etc.)</li>
+                    <li>Travailler avec plus d’efficacité et rendre plus facile votre démarche de renouveau.</li>
+                    <li>Être accompagné par une personne rigoureuse et à l’écoute</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="image-gallery">
+            <div class="images">
+                <div class="image-container">
+                    <img src="static/image1.jpg" alt="Description de l'image 1" class="image">
+                </div>
+                <div class="image-container">
+                    <img src="static/image2.avif" alt="Description de l'image 2" class="image">
+                </div>
+                <div class="image-container">
+                    <img src="static/image3.avif" alt="Description de l'image 3" class="image">
+                </div>
+            </div>
+        </section>
+        
+        <!--
+        <section class="about-services">
+            <h2>Nos Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <span class="post-it">1</span>
+                    <h3>Organisation à domicile</h3>
+                    <p>Améliorez l'agencement de votre maison avec nos solutions sur mesure.</p>
+                </div>
+                <div class="service-card">
+                    <span class="post-it">2</span>
+                    <h3>Conseil en rangement</h3>
+                    <p>Apprenez les meilleures techniques pour maintenir un espace de vie ordonné.</p>
+                </div>
+                <div class="service-card">
+                    <span class="post-it">3</span>
+                    <h3>Désencombrement</h3>
+                    <p>Nous vous aidons à trier, organiser et alléger vos espaces encombrés.</p>
+                </div>
+            </div>
+        </section>    
+        -->
+
+        <section>
+            <h2>Basée à Thise, j’interviens autour de Besançon jusqu’à 80km</h2>
+            <div id="map"></div>
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        </section>
+
+        <section class="testimonials">
+            <h2>Vos témoignages</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item">
+                    <div class="testimonial-quote">“</div>
+                    <div class="testimonial-content">Je salue votre professionnalisme, votre écoute, votre détermination, votre disponibilité et vos précieux conseils. 
+                        Grâce à vous, j’ai retrouvé le goût au rangement organisé ! Un vrai dressing qui ne se partage pas ! 
+                        </div>
+                    <div class="testimonial-author">Virginie</div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote">“</div>
+                    <div style="font-size: small;" class="testimonial-content">Je tiens à exprimer toute ma satisfaction pour l'intervention de Mme Estavoyer à mon domicile. Mme Estavoyer a fait preuve d'une grande écoute, prenant le temps de bien comprendre mes besoins et attentes. Elle a su instaurer un climat de confiance qui m'a permis de me sentir à l'aise tout au long du processus.
+                        <br>
+                        La manière dont nous avons procédé au tri et au rangement de mon dressing a parfaitement répondu à mes attentes. Elle m'a guidé avec professionnalisme et douceur, en respectant mon rythme et en me proposant des solutions adaptées à mes habitudes de vie.
+                        <br>
+                        Le résultat est remarquable : la fonctionnalité de la pièce a été grandement améliorée. Mon dressing est désormais organisé de manière pratique et agréable, ce qui facilite grandement mon quotidien.
+                        <br>
+                        Je recommande sans hésitation les services de Mme Estavoyer à toute personne souhaitant optimiser l'espace de son domicile. Sa compétence, sa bienveillance et son sens de l'organisation font une home organiser d'exception.
+                        </div>
+                    <div class="testimonial-author">Céline</div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote">“</div>
+                    <div class="testimonial-content">Je suis très satisfait de l’aide de Laurie pour ranger mes meubles à chaussures dans l’entrée de ma maison. Elle a été à l’écoute et a proposé des solutions adaptées. Le résultat est incroyable, mon entrée est maintenant organisée et fonctionnelle. Je recommande vivement ses services !</div>
+                    <div class="testimonial-author">Anonyme</div>
+                </div>
+            </div>            
+        </section>
+           
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Colonne 1 : Logo -->
+            <div class="footer-logo">
+                <img src="static/logo-nb.png" alt="Bazar Envolé Logo">
+            </div>
+            
+            <!-- Colonne 2 : Réseaux sociaux et email -->
+            <div class="footer-social-contact">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="static/instagram.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="static/linkedin.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="static/facebook.png" alt="Facebook" />
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:bazar.envole@orange.fr" style="color: white;">bazar.envole@orange.fr</a></p>
+                </div>
+            </div>
+            
+            <!-- Colonne 3 : Certification -->
+            <div class="footer-certification">
+                <img src="static/certification-inv.png" alt="Home Organizer Certifiée" />
+            </div>
+        </div>
+    
+        <!-- Mentions légales et copyright centrés -->
+        <div class="footer-legal">
+            <a href="#politique-confidentialite">Politique de confidentialité</a> | 
+            <a href="#mentions-legales">Mentions légales</a>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>Bazar Envolé - Tous droits réservés - 2024</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>
