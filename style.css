@@ -571,6 +571,25 @@ nav { /* Ou tout autre conteneur parent */
     }
 }
 
+.custom-list-2 {
+    list-style: none; /* Remove default bullets */
+    padding: 0; /* Remove padding */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.custom-list-2 li {
+    display: flex; /* Align image and text horizontally */
+    align-items: center; /* Center the items vertically */
+    margin-bottom: 10px; /* Space between items */
+}
+
+.custom-list-2 li img {
+    width: 40px; /* Adjust icon size */
+    height: 40px; /* Adjust icon size */
+    margin-right: 10px; /* Space between the image and text */
+}
+
 
 /* --------------------  Qui suis-je ?  ------------------ */
 
