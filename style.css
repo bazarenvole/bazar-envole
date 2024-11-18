@@ -400,6 +400,24 @@ nav { /* Ou tout autre conteneur parent */
     line-height: 1.5;
     margin-bottom: 5px;
     text-align: start;
+    /* Ajout pour la scrollbar */
+    max-height: 300px; /* Limite la hauteur visible */
+    overflow-y: auto; /* Ajoute une scrollbar verticale si le contenu dépasse */
+    padding-right: 10px; /* Ajout d’un espace pour la scrollbar */
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-content::-webkit-scrollbar {
+    width: 8px; /* Largeur de la scrollbar */
+}
+
+.testimonial-content::-webkit-scrollbar-thumb {
+    background-color: var(--color3, --color3); /* Couleur de la barre */
+    border-radius: 4px; /* Arrondi */
+}
+
+.testimonial-content::-webkit-scrollbar-track {
+    background: transparent; /* Fond transparent */
 }
 
 .testimonial-author {
