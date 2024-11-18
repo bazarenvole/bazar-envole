@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.bazar-envole.fr/sitemap.xml
