@@ -87,13 +87,15 @@ header {
     display: none;
 }
 nav { /* Ou tout autre conteneur parent */
-    text-align: center; /* Centre le contenu textuel */
+    text-align: center;/* Centre le contenu textuel */
 }
 /* Styles pour la barre de navigation */
 .nav-links {
     display: flex;
     list-style: none;
     justify-content: center;
+    position: relative;
+    left: -75px;
 }
 
 .nav-links li {
