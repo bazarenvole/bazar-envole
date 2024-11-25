@@ -583,6 +583,7 @@ nav { /* Ou tout autre conteneur parent */
     .images {
         flex-direction: column; /* Aligne les images verticalement */
         align-items: center; /* Centre les images dans la colonne */
+        margin: 20px;
     }
 
     .image-container {
@@ -609,6 +610,57 @@ nav { /* Ou tout autre conteneur parent */
     height: 40px; /* Adjust icon size */
     margin-right: 10px; /* Space between the image and text */
 }
+
+/* a qui s'adresse mes services */
+
+.wrapper {
+    max-width: 75%;
+    margin: auto;
+  }
+  
+  .wrapper > p,
+  .wrapper > h1 {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  
+  .accordion {
+    background-color: #fffcfd24;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion i {
+    font-size: 1rem;
+  }
+
+  .pannel {
+    background-color: white;
+    overflow: hidden;
+    background-color: #ccbfe296;
+    display: none;
+  }
+  .pannel p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+  
+  .faq-acc {
+    margin: 10px 0;
+  }
+  .faq-acc.active {
+    border: none;
+  }
 
 
 /* --------------------  Qui suis-je ?  ------------------ */
