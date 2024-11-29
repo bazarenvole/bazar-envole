@@ -653,6 +653,7 @@ nav { /* Ou tout autre conteneur parent */
     color: rgba(0, 0, 0, 0.7);
     font-size: 1.2rem;
     line-height: 1.4;
+    text-align: start;
   }
   
   .faq-acc {
