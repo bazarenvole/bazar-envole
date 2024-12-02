@@ -1396,3 +1396,33 @@ button:hover {
 .tarifs {
     margin-bottom: 20px;
 }
+
+/* Mentions Legales */
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto; /* Centrer et espacer */
+    max-width: 1200px; /* Limiter la largeur globale */
+}
+
+/* Titre centré en haut */
+.legal-main-text h1 {
+    text-align: center;
+}    
+
+/* Texte principal centré */
+.legal-main-text {
+    text-align: start;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 1100px; /* Largeur du texte centrée */
+    top: -30px;
+}
+
+.legal-main-text p{
+    text-align: start;
+    text-indent: 30px;
+}
