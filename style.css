@@ -663,6 +663,22 @@ nav { /* Ou tout autre conteneur parent */
     border: none;
   }
 
+  .a-q-image {
+    width: 90%; /* Définit la largeur de l'image à 50% */
+    display: block; /* Nécessaire pour que margin fonctionne correctement */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    margin-bottom: 20px;
+    }
+
+  @media (min-width: 700px) {
+        .a-q-image {
+            width: 50%; /* Définit la largeur de l'image à 50% */
+            display: block; /* Nécessaire pour que margin fonctionne correctement */
+            margin: 0 auto; /* Centre l'image horizontalement */
+            margin-bottom: 20px;
+        }
+    }
+
 
 /* --------------------  Qui suis-je ?  ------------------ */
 
