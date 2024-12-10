@@ -1442,3 +1442,112 @@ button:hover {
     text-align: start;
     text-indent: 30px;
 }
+
+/* Timeline */
+
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    height: 330px;
+    margin-bottom: 350px;
+    margin-top: 30px;
+}
+
+.timeline-wrapper h1{
+    margin-bottom: 30px;
+}
+
+.timeline-wrapper h4{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.timeline-wrapper .timeline-middle-line {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 103%;
+    transform: translateY(-50%);
+    background: var(--color3);
+}
+
+.timeline-box {
+    width: 21%; /* Augmente la largeur pour avoir plus d'espace pour chaque box */
+    position: relative;
+    min-height: 540px;
+    float: right;
+    margin-bottom: 30px; /* Espace entre les éléments */
+}
+
+.timeline-box .timeline-date {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.timeline-box .timeline-date p {
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+.timeline-box .timeline-date img {
+    max-width: 140%;
+}
+
+.timeline-box .timeline-box-content {
+    border-radius: 5px;
+    border: 2px solid var(--color4);
+    width: 500px; /* Augmenter la largeur pour une zone de texte plus large */
+    position: absolute;
+    left: -150px; /* Centrer la boîte de contenu par rapport à la ligne centrale */
+    padding: 15px;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Permet au texte de s'ajuster si nécessaire */
+}
+
+.timeline-box-top .timeline-box-content {
+    border-radius: 5px;
+    border: 2px solid var(--color4);
+    width: 500px; /* Augmenter la largeur pour une zone de texte plus large */
+    position: absolute;
+    left: -265px; /* Centrer la boîte de contenu par rapport à la ligne centrale */
+    padding: 15px;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Permet au texte de s'ajuster si nécessaire */
+}
+
+.timeline-box-content p {
+    margin: 0;
+    color: var(--color5);
+}
+
+.timeline-box-bottom .timeline-box-content {
+    top: 65%;
+}
+
+.timeline-box-content::before {
+    content: " ";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+}
+
+.timeline-box-bottom .timeline-box-content::before {
+    border-bottom-color: var(--color4);
+    top: -20px;
+    left: 37%;
+}
+
+.timeline-box-top .timeline-box-content::before {
+    border-top-color: var(--color4);
+    bottom: -20px;
+    left: 60%;
+}
