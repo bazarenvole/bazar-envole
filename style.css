@@ -788,7 +788,6 @@ nav { /* Ou tout autre conteneur parent */
 @media (max-width: 1146px) {
     .highlight{
         font-weight: 900;
-        text-decoration: underline;
     }
     .highlight::before {
         display: none;
@@ -1553,6 +1552,101 @@ button:hover {
     border-top-color: var(--color4);
     bottom: -20px;
     left: 60%;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Timeline Mobile */
+
+.timeline-wrapper-mobile {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.timeline-wrapper-mobile h1 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.timeline-wrapper-mobile h4 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.timeline-wrapper-mobile .timeline-middle-line-mobile {
+    position: absolute;
+    width: 5px;
+    height: 96%;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color3);
+    z-index: -10;
+}
+
+.timeline-box-mobile {
+    width: 90%; /* Réduit la largeur des boxes pour plus d'espace */
+    margin: 20px auto;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s ease-in-out;
+    margin-top: 50px;
+}
+
+.timeline-box-mobile .timeline-date-mobile {
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.timeline-box-mobile .timeline-date-mobile img {
+    max-width: 100%;
+}
+
+.timeline-box-mobile .timeline-box-content-mobile {
+    border-radius: 5px;
+    border: 2px solid var(--color4);
+    width: 100%; /* Utilise toute la largeur disponible */
+    padding: 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    text-align: center;
+    background-color: #fffefe;
+}
+
+.timeline-box-mobile .timeline-box-content-mobile p {
+    margin: 0;
+    color: var(--color5);
+}
+
+.timeline-box-mobile.timeline-box-bottom .timeline-box-content-mobile {
+    margin-top: 30px;
+}
+
+.timeline-box-mobile.timeline-box-top .timeline-box-content-mobile {
+    margin-bottom: 30px;
+}
+
+.timeline-box-mobile.timeline-box-bottom .timeline-box-content-mobile::before {
+    border-bottom-color: var(--color4);
+    top: -20px;
+}
+
+.timeline-box-mobile.timeline-box-top .timeline-box-content-mobile::before {
+    border-top-color: var(--color4);
+    bottom: -20px;
 }
 
 .visible {
