@@ -1479,6 +1479,9 @@ button:hover {
     min-height: 540px;
     float: right;
     margin-bottom: 30px; /* Espace entre les éléments */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s ease-in-out;
 }
 
 .timeline-box .timeline-date {
@@ -1529,7 +1532,7 @@ button:hover {
 }
 
 .timeline-box-bottom .timeline-box-content {
-    top: 65%;
+    top: 61%;
 }
 
 .timeline-box-content::before {
@@ -1550,4 +1553,9 @@ button:hover {
     border-top-color: var(--color4);
     bottom: -20px;
     left: 60%;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

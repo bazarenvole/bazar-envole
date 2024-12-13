@@ -230,7 +230,7 @@
               </div>
               <div class="timeline-box-content">
                   <h4>Jour de l’intervention :</h4>
-                  <p>« Passage à l’action » : Une fois le devis accepté, j’interviens directement à votre domicile afin de vous aider dans la prise de décision. Ensemble, nous allons trier, désencombrer et réorganiser vos espaces à votre rythme ! Je vous apporte des conseils, des solutions de rangement adaptées mais aussi et surtout un réel soutien dans votre démarche.</p>
+                  <p><span class="highlight">« Passage à l’action »</span> : Une fois le devis accepté, j’interviens directement à votre domicile afin de vous aider dans la prise de décision. Ensemble, nous allons <span class="highlight">trier, désencombrer et</span> <span class="highlight">réorganiser vos espaces à votre rythme !</span> Je vous apporte des conseils, des solutions de rangement adaptées mais aussi et surtout un réel soutien dans votre démarche.</p>
               </div>
           </div>
           
@@ -239,8 +239,8 @@
                   <img src="static/etape2.png" alt="1ère rencontre" />
               </div>
               <div class="timeline-box-content">
-                  <h4>1ère rencontre :</h4>
-                  <p>Je me rends à votre domicile pour une durée d’1h30 afin d’échanger davantage sur vos habitudes de vie et de mieux comprendre vos besoins spécifiques. En effet, vous allez pouvoir me montrer le ou les espaces concernés, ce que vous avez imaginé une fois mon intervention passée, et de mon côté, je vais pouvoir dresser un état des lieux précis de la situation pour vous proposer un accompagnement qui vous correspond (espace disponible, contraintes, blocages...etc.)</p>
+                  <h4>Visite diagnostic :</h4>
+                  <p><span class="highlight">Je me rends à votre domicile pour une durée d’1h30</span> afin d’échanger davantage sur vos habitudes de vie et de mieux comprendre vos besoins spécifiques. En effet, vous allez pouvoir me montrer le ou les espaces concernés, ce que vous avez imaginé une fois mon intervention passée, et de mon côté, je vais pouvoir dresser un état des lieux précis de la situation pour vous proposer un accompagnement qui vous correspond (espace disponible, contraintes, blocages...etc.)</p>
               </div>
           </div>
           
@@ -249,16 +249,34 @@
                   <img src="static/etape1.png" alt="Visite diagnostic" />
               </div>
               <div class="timeline-box-content">
-                  <h4>Visite diagnostic :</h4>
-                  <p>Gratuit, sans engagement et d’une durée de 15 à 30min, c’est un premier contact entre vous et moi afin de comprendre vos besoins et de vous présenter ma façon de travailler. Durant cet échange, je répondrai à toutes vos questions et vous pourrez me faire part de vos difficultés actuelles (désordre, accumulation d’objets, manque de temps...etc.) ainsi que de vos attentes.</p>
+                  <h4>Appel découverte :</h4>
+                  <p><span class="highlight">Gratuit, sans engagement</span> et d’une durée de 15 à 30min, c’est un <span class="highlight">premier contact</span> entre vous et moi afin de <span class="highlight">comprendre</span> <span class="highlight">vos besoins</span> et de vous présenter ma façon de travailler. Durant cet échange, je répondrai à toutes vos questions et vous pourrez me faire part de vos difficultés actuelles (désordre, accumulation d’objets, manque de temps...etc.) ainsi que de <span class="highlight">vos attentes</span>.</p>
               </div>
           </div>
-          
-          
-          
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              const timelineBoxes = document.querySelectorAll(".timeline-box");
+        
+              const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                  if (entry.isIntersecting) {
+                    setTimeout(() => {
+                      entry.target.classList.add("visible");
+                    }, index * 700); // Delay each box by 700ms
+                  }
+                });
+              }, {
+                threshold: 0.6
+              });
+        
+              Array.from(timelineBoxes).reverse().forEach((box, index) => {
+                observer.observe(box);
+              });
+            });
+          </script>
         </section>
         <a href="prestation.html" class="button-rdv" style="margin: 50px auto 0; display: block; text-align: center; width: 200px;">Découvrir mes prestations</a>
-        
+      
         
         <!--
         <section class="about-services">
