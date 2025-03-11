@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://www.bazar-envole.fr/icone.png">
+    <link rel="icon" type="image/png" href="/icone-32x32.png" sizes="32x32">
+    <link rel="icon" href="/icone.ico" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json">
+    <title>Bazar Envolé - Prestations</title>
+    <link rel="icon" href="static/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div id="loading-screen">
+        <img src="static/logo-0.png" alt="Logo" class="loading-logo">
+        <img src="static/papillon.gif" alt="Papillon" class="loading-butterfly">
+    </div>
+    <header>
+        <div class="logo-negatif">
+            <a href="index.html">
+                <img src="static/logo.png" alt="Bazar Envolé Logo">
+            </a>
+        </div>            
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+                <li><a href="avant-apres.html">Avant/Après</a></li>
+                <li><a href="prendre-rdv.html">Prendre RDV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+                <div class="burger-icon"></div>
+            </div>
+            <div class="close" id="close">&times;</div>
+        </nav>
+    </header>
+    <!--
+    <main style="height: 800px;">
+        <h3 style="text-align: center;">Cette page sera bientôt disponible. Merci de votre compréhension.</h3>
+        
+    </main>
+    -->
+    <main>
+        <section class="how-to-start">
+            <h2>Étapes clés de mon accompagnement</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Appel découverte</h3>
+                    <p>Gratuit, sans engagement et d’une durée de 15 à 30min, c’est un premier contact entre vous et moi afin de comprendre vos besoins et de vous présenter ma façon de travailler. 
+                        <br><br>
+                        Durant cet échange, je répondrais à toutes vos questions et vous pourrez me faire part de vos difficultés actuels (désordre, accumulation d’objets, manque de temps...etc.) ainsi que de vos attentes. 
+                        <br><br>
+                        Ce sera également l’occasion de vous présenter mes services en fonction de vos besoins exprimés et de définir ensemble si vous souhaitez que nous travaillions ensemble. Si tel est le cas, nous fixerons une date pour une visite diagnostic. 
+                        </p>
+                    <a href="prendre-rdv.html" class="button-rdv">Prendre RDV</a>
+                </div>
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm45.66-93.66a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32-11.32L148.69,136H88a8,8,0,0,1,0-16h60.69l-18.35-18.34a8,8,0,0,1,11.32-11.32Z"></path>
+                </svg>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Visite diagnostic : 80 €</h3>
+                    <p>Je me rends à votre domicile pour une durée d’1h30 afin d’échanger davantage sur vos habitudes de vie et de mieux comprendre vos besoins spécifiques. 
+                        <br><br>
+                        En effet, vous allez pouvoir me montrer le ou les espaces concernés, ce que vous avez imaginé une fois mon intervention passée, et de mon côté je vais pouvoir dresser un état des lieux précis de la situation pour vous proposer un accompagnement qui vous correspond (espace disponible, contraintes, blocages...etc.) 
+                        <br><br>
+                        Mon objectif est de vous proposer des solutions qui s’adaptent à votre mode de vie et à votre situation. 
+                        </p>
+                </div>
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm45.66-93.66a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32-11.32L148.69,136H88a8,8,0,0,1,0-16h60.69l-18.35-18.34a8,8,0,0,1,11.32-11.32Z"></path>
+                </svg>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Jour de l’intervention : « passage à l’action »</h3>
+                    <p>Une fois le devis accepté, j’interviens directement à votre domicile afin de vous aider dans la prise de décision. 
+                        <br><br>
+                        Ensemble, nous allons trier, désencombrer et réorganiser vos espaces à votre rythme ! Je vous apporte des conseils, des solutions de rangement adaptées mais aussi et surtout un réel soutien dans votre démarche.
+                        <br><br>
+                        Selon votre demande et le temps que j’estimerais nécessaire, la mission pourra être réalisée en plusieurs fois (sur une ou plusieurs journées par exemple).
+                        </p>
+                </div>
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm45.66-93.66a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32-11.32L148.69,136H88a8,8,0,0,1,0-16h60.69l-18.35-18.34a8,8,0,0,1,11.32-11.32Z"></path>
+                </svg>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Suivi Post intervention</h3>
+                    <p>Une fois la mission réalisée, je m’engage à vous recontacter un mois plus tard par téléphone afin de faire le point ensemble sur la situation.</p>
+                    <ul class="custom-list">
+                        <li>Comment vous sentez-vous dans votre espace après l’intervention ?</li>
+                        <li>L’organisation mise en place répond à vos attentes et vos besoins ?</li>
+                        <li>Avez-vous remarqué des améliorations dans votre quotidien ?</li>
+                        <li>Y-a-t-il des aspects de l’organisation qui ne fonctionnent pas comme prévu ou qui nécessitent des ajustements ?</li>
+                        <li>Rencontrez-vous des difficultés à maintenir l’espace organisé ?</li>
+                        <li>Y-a-t-il d’autres espaces ou aspects de votre organisation que vous aimeriez optimiser davantage ?</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="tarifs">
+            <h1>Prestations et Tarifs</h1>
+            <div class="step">
+                <ul class="custom-list">
+                    <li>Appel découverte : <strong>Gratuit</strong></li>
+                    <li>Visite diagnostic : <strong>80€</strong></li>
+                    <li>Session de 4h : <strong>220€</strong></li>
+                    <li>Session de 7h : <strong>385€</strong></li>                
+                </ul>    
+                <p style="font-style: italic;">Chaque client et chaque demande est différente, selon votre situation je vous ferais parvenir un devis.</p>        
+            </div>
+        </section>
+    </main>
+    
+
+    <footer>
+        <div class="footer-container">
+            <!-- Colonne 1 : Logo -->
+            <div class="footer-logo">
+                <img src="static/logo-nb.png" alt="Bazar Envolé Logo">
+            </div>
+            
+            <!-- Colonne 2 : Réseaux sociaux et email -->
+            <div class="footer-social-contact">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/bazar.envole/" target="_blank">
+                        <img src="static/instagram.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="static/linkedin.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com/61569029558011/" target="_blank">
+                        <img src="static/facebook.png" alt="Facebook" />
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:bazar.envole@orange.fr" style="color: white;">bazar.envole@orange.fr</a></p>
+                </div>
+            </div>
+            
+            <!-- Colonne 3 : Certification -->
+            <div class="footer-certification">
+                <img src="static/certification-inv.png" alt="Home Organizer Certifiée" />
+            </div>
+        </div>
+    
+        <!-- Mentions légales et copyright centrés -->
+        <div class="footer-legal">
+            <a href="#politique-confidentialite">Politique de confidentialité</a> | 
+            <a href="mentions-legales.html">Mentions légales</a> | 
+            <a href="CGPS.html">Conditions générales de prestations de services</a>
+          </div>
+        
+        <div class="footer-copyright">
+            <p>Bazar Envolé - Tous droits réservés - 2024</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>
